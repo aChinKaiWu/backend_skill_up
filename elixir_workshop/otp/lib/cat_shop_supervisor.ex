@@ -6,9 +6,9 @@ defmodule CatShopSupervisor do
   end
 
   @impl true
-  def init([]) do
+  def init(state) do
     children = [
-      {CatShop, []}
+      {CatShop, state}
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
